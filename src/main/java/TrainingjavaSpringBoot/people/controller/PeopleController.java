@@ -43,4 +43,12 @@ public class PeopleController {
         log.info(" === Finish api update people, People id {} : === ", response.getId());
         return response;
     }
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteById(@PathVariable("id") String id){
+        log.info(" === Start api delete people === ");
+        log.info(" === String id {} : === ", id);
+        log.info(" === Finish api delete people, People id {} : ");
+        service.deleteById(id);
+    }
 }
