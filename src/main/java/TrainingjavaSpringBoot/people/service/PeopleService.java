@@ -7,4 +7,6 @@ public interface PeopleService {
     PeopleResponse create(PeopleRequest request);
 
     PeopleResponse getById(String id );
+
+    PeopleResponse update(PeopleRequest request, String id);
 }

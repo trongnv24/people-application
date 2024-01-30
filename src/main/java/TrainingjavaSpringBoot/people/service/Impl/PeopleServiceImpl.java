@@ -47,4 +47,23 @@ public class PeopleServiceImpl implements PeopleService {
         log.info(" === Finish api getById people ===, People id {} : ", response.getId());
         return response;
     }
+
+    @Override
+    public PeopleResponse update(PeopleRequest request, String id) {
+        log.info(" === Start api update people === ");
+        log.info(" === Request Body {} :, String id {} : ",request,id);
+        Optional<PeopleEntity>optionalPeople=peopleRepository.findById(id);
+        if(!optionalPeople.isPresent()){
+            throw new RuntimeException();
+        }
+        PeopleEntity peopleEntity = optionalPeople.get();
+        peopleEntity.setLastName(request.getLastName());
+        peopleEntity.setHairColor(request.getHairColor());
+        peopleEntity.setAge(request.getAge());
+        peopleEntity.setEmail(request.getEmail());
+        peopleEntity = peopleRepository.save(peopleEntity);
+        PeopleResponse response = convertEntityToPeopleResponse(peopleEntity);
+        log.info(" === Finish api update people, People id {} : === ", response.getId());
+        return response;
+    }
 }
