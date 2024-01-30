@@ -34,4 +34,13 @@ public class PeopleController {
         log.info( " === Finish api getById people, People id {} : ", response.getId());
         return response;
     }
+    @PutMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public PeopleResponse update(@RequestBody PeopleRequest request, @PathVariable ("id") String id){
+        log.info(" === Start api update people === ");
+        log.info(" === Request Body {} :, String id {} :", request, id);
+        PeopleResponse response = service.update(request, id);
+        log.info(" === Finish api update people, People id {} : === ", response.getId());
+        return response;
+    }
 }
