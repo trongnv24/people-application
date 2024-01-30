@@ -9,4 +9,6 @@ public interface PeopleService {
     PeopleResponse getById(String id );
 
     PeopleResponse update(PeopleRequest request, String id);
+
+    void deleteById(String id);
 }

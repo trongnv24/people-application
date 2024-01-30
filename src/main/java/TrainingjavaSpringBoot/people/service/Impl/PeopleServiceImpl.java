@@ -66,4 +66,16 @@ public class PeopleServiceImpl implements PeopleService {
         log.info(" === Finish api update people, People id {} : === ", response.getId());
         return response;
     }
+
+    @Override
+    public void deleteById(String id) {
+        log.info(" === Start api delete people === ");
+        log.info(" === String id {} : ==== ");
+        Optional<PeopleEntity>optionalPeople=peopleRepository.findById(id);
+        if(!optionalPeople.isPresent()){
+            throw new RuntimeException();
+        }
+        log.info(" === Finish api delete people, People id {} : ==== ");
+        peopleRepository.deleteById(id);
+    }
 }
