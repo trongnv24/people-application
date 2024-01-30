@@ -22,6 +22,16 @@ public class PeopleController {
         log.info(" === Start api create new people === ");
         log.info((" === Request Body : {} ==== "), request);
         PeopleResponse response = service.create(request);
+        log.info(" === Finish api create new people, People id {} :", response.getId());
+        return response;
+    }
+    @GetMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public PeopleResponse getById(@PathVariable("id") String id){
+        log.info(" === Start api getById people === ");
+        log.info(" ===  String id : {} ==== ", id);
+        PeopleResponse response = service.getById(id);
+        log.info( " === Finish api getById people, People id {} : ", response.getId());
         return response;
     }
 }

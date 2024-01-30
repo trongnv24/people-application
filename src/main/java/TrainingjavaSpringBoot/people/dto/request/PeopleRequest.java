@@ -1,9 +1,5 @@
 package TrainingjavaSpringBoot.people.dto.request;
 
-import jakarta.persistence.PrePersist;
-
-import java.util.Objects;
-import java.util.UUID;
 
 public class PeopleRequest {
     private String id;
