@@ -5,4 +5,6 @@ import TrainingjavaSpringBoot.people.dto.response.PeopleResponse;
 
 public interface PeopleService {
     PeopleResponse create(PeopleRequest request);
+
+    PeopleResponse getById(String id );
 }
